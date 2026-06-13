@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const https = require('https');
-const readline = require('readline');
 
 const API_KEY = process.env.OPENROUTER_API_KEY;
 
@@ -20,21 +19,23 @@ const commands = {
   copy: `Write polished copy based on this prompt. Be concise and direct.`,
   outline: `Generate a Substack essay outline based on this idea. Use 4-6 sections with brief descriptions.`,
   headline: `Generate 5 headline options for this draft or idea. Vary the angles.`,
-  check: `Review this draft. Flag moments of over-explanation or where trust in the reader breaks down. Be specific.`
+  check: `Review this draft. Flag moments of over-explanation or where trust in the reader breaks down. Be specific.`,
+  grammar: `Fix all grammar errors in this text. Return only the corrected version with a brief list of what was changed.`
 };
 
 if (!command || !commands[command]) {
   console.log('\nvanwrite — a CLI tool for writers\n');
   console.log('Commands:');
-  console.log('  node index.js copy "your prompt here"');
-  console.log('  node index.js outline "your essay idea"');
-  console.log('  node index.js headline "your draft or idea"');
-  console.log('  node index.js check "paste your draft here"');
+  console.log('  vanwrite copy "your prompt here"');
+  console.log('  vanwrite outline "your essay idea"');
+  console.log('  vanwrite headline "your draft or idea"');
+  console.log('  vanwrite check "paste your draft here"');
+  console.log('  vanwrite grammar "paste your text here"');
   process.exit(0);
 }
 
 if (!input) {
-  console.log(`Usage: node index.js ${command} "your input here"`);
+  console.log(`Usage: vanwrite ${command} "your input here"`);
   process.exit(1);
 }
 
@@ -55,7 +56,7 @@ const options = {
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${API_KEY}`,
-    'HTTP-Referer': 'https://github.com/vanechkinn/vanwrite',
+    'HTTP-Referer': 'https://github.com/ItsmeIvanella/vanwrite',
     'X-Title': 'vanwrite'
   }
 };
