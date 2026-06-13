@@ -1,0 +1,1 @@
+# vanwrite\n\nA CLI writing tool for writers. Built by Vanechkinn.\n\n## Commands\n\n- `vanwrite copy "prompt"` — generate copy\n- `vanwrite outline "idea"` — essay outline\n- `vanwrite headline "draft"` — 5 headline options\n- `vanwrite check "draft"` — flag over-explanation
